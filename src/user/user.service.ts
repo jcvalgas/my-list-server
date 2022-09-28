@@ -46,6 +46,7 @@ export class UserService {
   async remove(id: string) {
     await this.findById(id);
     try {
+      await this.prisma.todo.deleteMany();
       await this.prisma.user.delete({where: {id}});
     } catch(err) {
       console.log(err);

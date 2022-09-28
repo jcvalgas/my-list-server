@@ -5,8 +5,11 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { AppModule } from './app.module';
 
 async function bootstrap() {
+  const allowedOrigins = process.env.IP_LIST.split (',') || '';
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
-    cors: true,
+    cors: {
+      origin: allowedOrigins,
+    },
   });
   
   app.set('trust proxy', 1);

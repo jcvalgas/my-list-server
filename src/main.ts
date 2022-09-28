@@ -17,9 +17,10 @@ async function bootstrap() {
     .setDescription('API de lista de tarefas')
     .setVersion('1.0.0')
     .addTag('status')
-    .addTag('user')
     .addTag('auth')
+    .addTag('user')
     .addTag('todo')
+    .addBearerAuth()
     .build()
 
     const document = SwaggerModule.createDocument(app, config);

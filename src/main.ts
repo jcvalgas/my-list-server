@@ -1,4 +1,4 @@
-import { ValidationPipe } from '@nestjs/common/pipes';
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
@@ -9,7 +9,7 @@ async function bootstrap() {
     cors: true,
   });
   
-  app.set('trusty proxy', 1);
+  app.set('trust proxy', 1);
   app.useGlobalPipes(new ValidationPipe());
 
   const config = new DocumentBuilder()
